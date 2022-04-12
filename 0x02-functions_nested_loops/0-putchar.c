@@ -7,7 +7,7 @@ int main(void)
 {
 /**
  *
- *  body of main function 
+ *  body of main function
  */
 	_putchar('_');
 	_putchar('p');
