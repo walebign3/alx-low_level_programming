@@ -1,11 +1,9 @@
 #include "main.h"
 
 /**
- * putchar
- * Comment1
- *
- * Comment2
- * print out
+ * main - Entry point.
+ * Description: write a program that prints "_putchar" followed by a new line.
+ * Return: Always 0 (Success.)
  */
 int main(void)
 {
