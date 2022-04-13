@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- *	Description: Alphabet list function.
+ *  Description: Alphabet list function.
  *  Return: lower case alphabet list
  */
-void print_alphabet()
+void print_alphabet(void)
 {
 	int n;
-	for (n='a'; n<='z'; n++)
+	for (n= 'a'; n<= 'z'; n++)
 		_putchar(n);
 	_putchar('\n');
 }
