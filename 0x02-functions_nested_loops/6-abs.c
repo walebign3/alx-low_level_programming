@@ -2,6 +2,7 @@
 
 /**
  * _abs - print absolute value
+ * @n: return integer
  * Description: print_absolute value.
  * Return: absolute value.
  */
