@@ -2,8 +2,6 @@
 
 /**
  * print_numbers - print numbers 0-9
- *
- * Description: print numbers 0-9 followed by new line.
  */
 void print_numbers(void)
 {
