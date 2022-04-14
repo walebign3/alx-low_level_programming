@@ -2,7 +2,7 @@
 
 /**
  * mul - print multiplication a and b
- * @c: identify character
+ * @c,b: identify character
  * Description: print multiplication result value.
  * Return: return multiplication result.
  */
