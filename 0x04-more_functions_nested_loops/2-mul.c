@@ -2,7 +2,8 @@
 
 /**
  * mul - print multiplication a and b
- * @a,b: identify character
+ * @a: First operand
+ * @b: Second operand
  *
  * Description: print multiplication result value.
  * Return: return multiplication result.
