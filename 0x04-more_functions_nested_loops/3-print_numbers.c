@@ -2,6 +2,7 @@
 
 /**
  * print_numbers - print numbers 0-9
+ * @n: values
  */
 void print_numbers(void)
 {
