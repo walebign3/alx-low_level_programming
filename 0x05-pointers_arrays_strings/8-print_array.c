@@ -1,20 +1,23 @@
-#include "main.h"
 #include <stdio.h>
-
+#include "main.h"
 /**
- * print_array - print numbers 0-9 except 2 and 4
- * @a: pointer
- * @n: number of array elements
+ * print_array - prints n number of elements from array a
+ * @a: array in question
+ * @n: number of elements
  *
  * Return: void
  */
+
 void print_array(int *a, int n)
 {
-	int i = 0;
+	int i;
 
-	for (i = 0; i < (n - 1); i++)
+	for (i = 0 ; i < n ; i++)
 	{
-		printf("%d, ", a[i]);
+		if (i == n - 1)
+			printf("%d", *(a + i));
+		else
+			printf("%d, ", *(a + i));
 	}
-	printf("%d\n",a[i]);
+	printf("\n");
 }
