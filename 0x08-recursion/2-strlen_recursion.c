@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * _print_rev_recursion - print numbers 0-9 except 2 and 4
+ * _strlen_recursion - print numbers 0-9 except 2 and 4
  * @s: pointer
  *
  * Return: void
