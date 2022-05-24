@@ -3,8 +3,8 @@
 #include "lists.h"
 /**
  * delete_nodeint_at_index - delete node
- * ptr1: pointer 1
- * ptr2: pointer 2
+ * @head: pointer 1
+ * @index: pointer 2
  *
  * Return: 1 if succeed & -1 if failed
  */
@@ -14,6 +14,7 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 	listint_t *ptr1;
 	listint_t *ptr2;
 	unsigned int x = 1;
+
 	ptr1 = *head;
 	ptr2 = *head;
 	if (head == NULL || *head == NULL)
@@ -43,5 +44,5 @@ int delete_nodeint_at_index(listint_t **head, unsigned int index)
 		ptr2->next = ptr1->next;
 		free(ptr1);
 	}
-return (1);
+	return (1);
 }
