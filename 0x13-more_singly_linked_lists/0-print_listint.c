@@ -2,7 +2,8 @@
 
 /**
  * print_listint - return number of nodes
- * @x: pointer to struct
+ * @x: counter
+ * @h: pointer to struct
  *
  * Return: number of nodes
  */
