@@ -2,8 +2,7 @@
 #include "lists.h"
 /**
  * reverse_listint - reverse nodes
- * @ptr1: pointer1
- * @ptr2: pointer2
+ * @head: pointer1
  *
  * Return: first node pointer
  */
