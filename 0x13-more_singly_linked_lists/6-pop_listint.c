@@ -8,7 +8,6 @@
  *
  * Return: node data
  */
-
 int pop_listint(listint_t **head)
 {
 	listint_t *tmp;
@@ -20,5 +19,5 @@ int pop_listint(listint_t **head)
 	*head = tmp->next;
 	x = tmp->n;
 	free(tmp);
-	return (n);
+	return (x);
 }
