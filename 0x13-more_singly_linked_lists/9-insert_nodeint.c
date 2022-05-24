@@ -3,10 +3,10 @@
 #include "lists.h"
 
 /**
- * x - counter
- * ptr1 - pointer 1
- * ptr2 - pointer 2
- * tmp - pointer 3
+ * 9-insert_nodeint.c - insert nodes
+ * @n - data
+ * @idx - index
+ * @head - pointer to first node
  *
  */
 
