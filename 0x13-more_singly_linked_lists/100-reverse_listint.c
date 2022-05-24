@@ -5,6 +5,7 @@
  * @ptr1: pointer1
  * @ptr2: pointer2
  *
+ * Return: first node pointer
  */
 
 listint_t *reverse_listint(listint_t **head)
