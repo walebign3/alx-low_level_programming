@@ -3,7 +3,7 @@
 
 /**
  * listint_len - list nodes
- * @h - pointer to struct
+ * @h: pointer to struct
  *
  * Return: list nodes
  */
