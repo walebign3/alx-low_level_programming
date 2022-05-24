@@ -2,13 +2,15 @@
 #include "lists.h"
 
 /**
- * x - counter
+ * sum_listint - summation of datas
+ * @head: Pointer to first node
  *
+ * Return: dummation of data
  */
-
 int sum_listint(listint_t *head)
 {
 	int x = 0;
+
 	if(head == NULL)
 		return(0);
 	else
