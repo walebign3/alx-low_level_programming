@@ -3,7 +3,7 @@
 #include "lists.h"
 
 /**
- * free_listint: free from memory
+ * free_listint - free from memory
  * @head: pointer to struct
  *
  * Return: void
@@ -11,5 +11,12 @@
 
 void free_listint(listint_t *head)
 {
-	free(head);
+	listint_t *tmp;
+
+	while (head != NULL)
+	{
+		tmp = head->next;
+		free(head);
+		head = tmp;
+	}
 }
