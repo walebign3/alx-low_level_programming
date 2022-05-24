@@ -3,11 +3,22 @@
 #include "lists.h"
 
 /**
- * function
+ * free_listint2 - free memory
+ * @head: pointer to first node
+ *
+ * Return: void
  */
 
 void free_listint2(listint_t **head)
 {
-	free(*head);
-	*head = NULL;
+	listint_t *next;
+
+	if (head == NULL)
+		return;
+	while (*head != NULL)
+	{
+		next = (*head)->next;
+		free(*head);
+		*head = next;
+	}
 }
