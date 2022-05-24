@@ -3,8 +3,10 @@
 #include "lists.h"
 
 /**
- * head - pointer to struct
+ * free_listint: free from memory
+ * @head: pointer to struct
  *
+ * Return: void
  */
 
 void free_listint(listint_t *head)
