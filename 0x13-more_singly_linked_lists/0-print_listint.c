@@ -2,8 +2,10 @@
 #include "lists.h"
 
 /**
- * h - pointer to struct
+ * print_listint return number of nodes 
+ * @x - pointer to struct
  *
+ * return: number of nodes
  */
 
 size_t print_listint(const listint_t *h)
