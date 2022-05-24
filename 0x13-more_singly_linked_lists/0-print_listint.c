@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "lists.h"
 
 /**
- * print_listint return number of nodes 
+ * print_listint return number of nodes
  * @x - pointer to struct
  *
  * return: number of nodes
