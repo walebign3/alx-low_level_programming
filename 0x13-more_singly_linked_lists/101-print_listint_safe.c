@@ -36,25 +36,25 @@ const listint_t **memaloc(const listint_t **ptr1, size_t x, const listint_t *ptr
  */
 size_t print_listint_safe(const listint_t *head)
 {
-	size_t x, n = 0;
+	size_t x, l = 0;
 	const listint_t **ptr1 = NULL;
 
 	while (head != NULL)
 	{
-		for (x = 0; x < n; x++)
+		for (x = 0; x < l; x++)
 		{
 			if (head == ptr1[x])
 			{
 				printf("-> [%p] %d\n", (void *)head, head->n);
 				free(ptr1);
-				return (n);
+				return (l);
 			}
 		}
-		n++;
-		ptr1 = memaloc(ptr1, n, head);
+		l++;
+		ptr1 = memaloc(ptr1, l, head);
 		printf("[%p] %d\n", (void *)head, head->n);
 		head = head->next;
 	}
 	free(ptr1);
-	return (n);
+	return (l);
 }
