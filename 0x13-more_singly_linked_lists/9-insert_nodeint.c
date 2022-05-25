@@ -1,47 +1,44 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "lists.h"
 
 /**
- * 9-insert_nodeint.c - insert nodes
- * @n - data
- * @idx - index
- * @head - pointer to first node
+ * insert_nodeint_at_index -  insert node
+ * @head: pointer to first node
+ * @idx: index
+ * @n: data of node
  *
+ * Return: pointers
  */
-
 listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n)
 {
-        listint_t *tmp;
-        listint_t *ptr1;
+	unsigned int x = 0;
+	listint_t *ptr1;
 	listint_t *ptr2;
-        unsigned int x = 0;
 
 	if (head == NULL)
 		return (NULL);
-	tmp = malloc(sizeof(listint_t));
-	if(tmp == NULL)
-		return(NULL);
-	ptr1 = *head;
-	ptr2 = *head;
-	while(ptr1 != NULL)
+	if (idx != 0)
 	{
-		x++;
-		ptr1 = ptr1->next;
-	}
-	if(idx > x++)
-	{
-		return(NULL);
-	}
-	else
-	{
-		while(--idx)
+		ptr1 = *head;
+		while (x < idx - 1 && current != NULL)
 		{
-			ptr2 = ptr2->next;
+			x++;
+			ptr1 = ptr1->next;
 		}
-		tmp->n = n;
-		tmp->next = ptr2->next;
-		ptr2->next = tmp;
-		return(tmp);
+		if (ptr1 == NULL)
+			return (NULL);
 	}
+	new = malloc(sizeof(listint_t));
+	if (ptr2 == NULL)
+		return (NULL);
+	ptr2->n = n;
+	if (idx == 0)
+	{
+		ptr2->next = *head;
+		*head = ptr2;
+		return (ptr2);
+	}
+	ptr2->next = ptr1->next;
+	ptr1->next = ptr2;
+	return (ptr2);
 }
