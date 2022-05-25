@@ -9,7 +9,6 @@
  */
 size_t print_list(const list_t *h)
 {
-
 	unsigned int x = 0;
 	const list_t *ptr = h;
 	while (ptr != NULL)
@@ -26,6 +25,5 @@ size_t print_list(const list_t *h)
 		ptr = ptr->next;
 		x++;
 	}
-
 	return (x);
 }
