@@ -1,5 +1,5 @@
-#ifndef _BIN_U_
-#define _BIN_U_
+#ifndef MAIN_H
+#define MAIN_H
 
 unsigned int binary_to_uint(const char *b);
 
