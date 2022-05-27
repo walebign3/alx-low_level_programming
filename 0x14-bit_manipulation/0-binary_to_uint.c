@@ -1,43 +1,30 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * Len - Gives the length of a string.
- * @bin_num: String to evaluate.
- *
- * Return: The length of the given string.
- */
+* binary_to_uint - converts bin to unsigned int
+* @b: pointer to char
+*
+* Return: returns unsigned int or zero
+**/
 
-int len(char *bin_num)
-{
-	int i = 0;
-
-	while (bin_num[i] != '\0')
-		i++;
-	return (i);
-}
-
-/**
- * binary_to_uint - convert bin to unsigned int
- * @b: pointer to string
- *
- * Return: decimal number or 0.
- */
 unsigned int binary_to_uint(const char *b)
 {
-	unsigned int x = 1;
-	unsigned int num = 0;
-	int l;
+	int n;
+	unsigned int len = 0;
 
 	if (!b)
 		return (0);
-	l = len((char *)b);
-	while (l--)
+
+	for (n = 0; b[n] != '\0'; n++)
 	{
-		if (b[l] > '1' || b[l] < '0')
+		len <<= 1;
+		if (b[n] == '1')
+			len += 1;
+		else
+		{
+			if (b[n] != '0' && b[n] != '1')
 			return (0);
-		num += (b[l] - '0') * x;
-		x *= 2;
+		}
 	}
-	return (num);
+	return (len);
 }
