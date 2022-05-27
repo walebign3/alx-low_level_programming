@@ -13,7 +13,6 @@ int len(char *bin_num)
 
 	while (bin_num[i] != '\0')
 	i++;
-
 	return (i);
 }
 
