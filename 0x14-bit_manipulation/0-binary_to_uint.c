@@ -2,11 +2,11 @@
 #include "main.h"
 
 /**
-* Len - Gives the length of a string.
-* @bin_num: String to evaluate.
-* Return: The length of the given string.
-*/
-int len(char *bin_num);
+ * Len - Gives the length of a string.
+ * @bin_num: String to evaluate.
+ *
+ * Return: The length of the given string.
+ */
 
 int len(char *bin_num)
 {
@@ -18,10 +18,11 @@ int len(char *bin_num)
 }
 
 /**
-* binary_to_uint - convert bin to unsigned int
-* @b: pointer to string
-* Return: decimal number or 0.
-*/
+ * binary_to_uint - convert bin to unsigned int
+ * @b: pointer to string
+ *
+ * Return: decimal number or 0.
+ */
 unsigned int binary_to_uint(const char *b)
 {
 	unsigned int x = 1;
