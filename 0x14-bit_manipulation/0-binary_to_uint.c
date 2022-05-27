@@ -1,8 +1,12 @@
+#include "main.h"
+
 /**
 * Len - Gives the length of a string.
 * @bin_num: String to evaluate.
 * Return: The length of the given string.
 */
+int len(char *bin_num);
+
 int len(char *bin_num)
 {
 	unsigned int i = 0;
