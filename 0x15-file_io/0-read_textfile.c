@@ -32,7 +32,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	while (BUF[i])
 		i++;
 	wrt = write (1,BUF,i);
-		if (wrt == -1)
+		if (wrt < 0)
 			return 0;
 		return wrt;
 	return i;
