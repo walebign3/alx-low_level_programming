@@ -7,7 +7,7 @@
 #include "main.h"
 
 /**
- * read_textfile- read number of character and return quantity
+ * read_textfile - read number of character and return quantity
  * @filename: 2nd argument
  * @letters: number of characters
  *
