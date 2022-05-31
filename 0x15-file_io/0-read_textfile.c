@@ -38,6 +38,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	if(wrt < 0 || wrt != rd)
 		return (0);
 	free(BUF);
+
 	close(fd);
 	return (wrt);
 }
