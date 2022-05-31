@@ -26,15 +26,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		exit(1);
 	}
 	fd = open (filename, O_RDONLY);
-		if (fd == -1)
-			return 0;
+	if (fd == -1)
+		return 0;
 	read (fd, BUF, letters);
 	while (BUF[i])
 		i++;
 	wrt = write (1,BUF,i);
-		if (wrt < 0)
-			return 0;
-		return (wrt);
+	if (wrt < 0)
+		return 0;
+	return (wrt);
 	return i;
 	close(fd);
 }
