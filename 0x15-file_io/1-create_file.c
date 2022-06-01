@@ -39,7 +39,7 @@ int create_file(const char *filename, char *text_content)
 	}
 	else
 	{
-		fd3 = open(filename, O_TRUNC);
+		fd3 = open(filename, O_RDWR | O_TRUNC);
 		if (fd3 == -1)
                         return -1;
 		wrt = write(fd3, text_content, i);
