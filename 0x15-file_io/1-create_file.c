@@ -23,14 +23,20 @@ int create_file(const char *filename, char *text_content)
 	{
 		fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
 		write(fd, text_content, i);
+		if (fd == -1)
+			return -1;
 	}
 	else if (fd == -1 && text_content == NULL)
 	{
 		fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
+		if (fd == -1)
+                        return -1;
 	}
 	else
 	{
 		fd = open(filename, O_TRUNC);
+		if (fd == -1)
+                        return -1;
 		write(fd, text_content, i);
 	}
 	close(fd);
