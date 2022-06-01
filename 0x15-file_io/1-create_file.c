@@ -11,6 +11,7 @@ int create_file(const char *filename, char *text_content)
 {
 	int fd;
 	ssize_t i = 0;
+	ssize_t wrt;
 
 	if (filename == NULL)
 	{
@@ -22,9 +23,11 @@ int create_file(const char *filename, char *text_content)
 	if (fd == -1 && text_content != NULL)
 	{
 		fd = open(filename, O_CREAT | O_RDWR, S_IRUSR | S_IWUSR);
-		write(fd, text_content, i);
 		if (fd == -1)
 			return -1;
+		wrt = write(fd, text_content, i);
+		if (wrt == -1)
+                        return -1;
 	}
 	else if (fd == -1 && text_content == NULL)
 	{
@@ -37,7 +40,9 @@ int create_file(const char *filename, char *text_content)
 		fd = open(filename, O_TRUNC);
 		if (fd == -1)
                         return -1;
-		write(fd, text_content, i);
+		wrt = write(fd, text_content, i);
+		if (wrt == -1)
+                        return -1;
 	}
 	close(fd);
 	return (1);
