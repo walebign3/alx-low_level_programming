@@ -21,11 +21,11 @@ int create_file(const char *filename, char *text_content)
 	fd = open(filename, O_RDONLY);
 	if (fd == -1 && text_content != NULL)
 	{
-		fd = open(filename, O_CREAT | O_WRONLY | S_IRUSR | S_IWUSR);
+		fd = open(filename, O_CREAT | O_RDWR);
 		write(fd, text_content, i);
 	}
 	else if (fd == -1 && text_content == NULL)
-		fd = open(filename, O_CREAT | S_IRUSR | S_IWUSR);
+		fd = open(filename, O_CREAT);
 	else
 	{
 		fd = open(filename, O_WRONLY | O_TRUNC);
