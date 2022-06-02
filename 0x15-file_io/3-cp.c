@@ -11,7 +11,14 @@ int main(int ac, char **av)
 {
 	int fd1, fd2, c1, c2;
 	ssize_t rd;
-	char BUF[1024];
+	char *BUF;
+
+	BUF = malloc(sizeof(char) * 1024);
+	if (BUF == NULL)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		exit(99);
+	}
 
 	if (ac != 3)
 	{
@@ -32,7 +39,6 @@ int main(int ac, char **av)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
-		fd2 = open(av[2], O_WRONLY | O_APPEND);
 	}
 	if (rd == -1)
 	{
@@ -51,5 +57,6 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd2);
 		exit(100);
 	}
+	free(BUF);
 	return (0);
 }
