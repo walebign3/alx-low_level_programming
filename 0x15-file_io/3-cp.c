@@ -31,14 +31,12 @@ int main(int ac, char **av)
 		if (fd1 == -1 || rd == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
-			free(BUF);
 			exit(98);
 		}
 		wrt = write(fd2, BUF, rd);
 		if (wrt == -1 || fd2 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-			free(BUF);
 			exit(99);
 		}
 		rd = read(fd1, BUF, 1024);
