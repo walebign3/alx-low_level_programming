@@ -18,6 +18,11 @@ int main(int ac, char **av)
 	}
 	fd2 = open(av[2], O_CREAT | O_RDWR | O_TRUNC, 0664);
 	fd1 = open(av[1], O_RDONLY);
+	if (fd1 == -1)
+        {
+		dprintf(2, "Error: Can't read from file NAME_OF_THE_FILE\n");
+		exit(98);
+        }
 	while ((rd = read(fd1, BUF, 1024)) > 0)
 		if (write(fd2, BUF, rd) != rd)
 		{
