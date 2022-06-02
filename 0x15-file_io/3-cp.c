@@ -10,7 +10,7 @@
 int main(int ac, char **av)
 {
 	int fd1, fd2, c1, c2;
-	ssize_t rd;
+	ssize_t rd, wrt;
 	char BUF[1024];
 
 	if (ac != 3)
@@ -26,11 +26,14 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	while ((rd = read(fd1, BUF, 1024)) > 0)
+	{
 		if (write(fd2, BUF, rd) != rd || fd2 == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
+		fd2 = open(argv[2], O_WRONLY | O_APPEND);
+	}
 	if (rd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
