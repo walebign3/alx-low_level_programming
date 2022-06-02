@@ -2,6 +2,8 @@
 
 /**
  * main - copy file content to another file
+ * @ac: The number of arguments
+ * @av: pointers to argument.
  *
  * Return: Always 0.
  */
