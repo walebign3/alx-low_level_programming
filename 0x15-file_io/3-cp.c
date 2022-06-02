@@ -41,7 +41,7 @@ int main(int ac, char **av)
 			free(BUF);
 			exit(99);
 		}
-		rd = read(fd1, BUF,1024);
+		rd = read(fd1, BUF, 1024);
 		wrt = open(av[2], O_WRONLY | O_APPEND);
 	} while (rd > 0);
 	free(BUF);
