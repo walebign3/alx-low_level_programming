@@ -16,7 +16,7 @@ int main(int ac, char **av)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	fd2 = open(av[2], O_CREAT | O_RDWR | O_TRUNC, S_IRUSR | S_IWUSR | S_IRGRP | S_IWGRP);
+	fd2 = open(av[2], O_CREAT | O_RDWR | O_TRUNC, 0674);
 	fd1 = open(av[1], O_RDONLY);
 	if (fd1 == -1)
 	{
