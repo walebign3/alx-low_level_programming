@@ -10,7 +10,7 @@
 int main(int ac, char **av)
 {
 	int fd1, fd2, c1, c2;
-	ssize_t rd;
+	ssize_t rd, wrt;
 	char *BUF;
 
 	BUF = malloc(sizeof(char) * 1024);
@@ -31,18 +31,25 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
-	while ((rd = read(fd1, BUF, 1024)) > 0)
-	{
-		if (write(fd2, BUF, rd) != rd || fd2 == -1)
-		{
-			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
-			exit(99);
-		}
-	}
+	if (fd2 == -1)
+        {
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+		exit(99);
+        }
+	rd = read(fd1, BUF, 1024);
 	if (rd == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
+	}
+	while (rd > 0)
+	{
+		wrt = write(fd2, BUF, rd);
+		if (wrt != rd)
+		{
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
+			exit(99);
+		}
 	}
 	c1 = close(fd1);
 	c2 = close(fd2);
