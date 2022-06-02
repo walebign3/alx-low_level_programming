@@ -24,7 +24,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	while ((rd = read(fd1, BUF, 1024)) > 0)
-		if (write(fd2, BUF, rd) != rd)
+		if (write(fd2, BUF, rd) != rd || fd2 == -1)
 		{
 			dprintf(2, "Error: Can't write to %s\n", av[2]);
 			exit(99);
