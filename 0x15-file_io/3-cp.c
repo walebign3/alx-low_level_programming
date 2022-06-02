@@ -9,7 +9,7 @@ int main(int ac, char **av)
 {
 	int fd1, fd2, c1, c2;
 	ssize_t rd;
-	char BUF [1024];
+	char BUF[1024];
 
 	if (ac != 3)
 	{
