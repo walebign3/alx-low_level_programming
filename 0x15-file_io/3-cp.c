@@ -8,6 +8,7 @@
  * @av: pointers to argument.
  *
  * Return: Always 0.
+ * Description: copy file and if incorrect display error
  */
 int main(int ac, char **av)
 {
