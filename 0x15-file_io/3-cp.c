@@ -32,7 +32,7 @@ int main(int ac, char **av)
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 			exit(99);
 		}
-		fd2 = open(argv[2], O_WRONLY | O_APPEND);
+		fd2 = open(av[2], O_WRONLY | O_APPEND);
 	}
 	if (rd == -1)
 	{
