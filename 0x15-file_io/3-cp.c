@@ -40,7 +40,7 @@ int main(int ac, char **av)
 			exit(99);
 		}
 		rd = read(fd1, BUF, 1024);
-		wrt = open(av[2], O_WRONLY | O_APPEND);
+		fd2 = open(av[2], O_WRONLY | O_APPEND);
 	} while (rd > 0);
 	free(BUF);
 	c1 = close(fd1);
