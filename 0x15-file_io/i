@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * elf_fun - Checks if a file is an ELF file.
  * @e_ident: Pointer to first section of ELF header
@@ -9,12 +8,12 @@ void elf_fun(unsigned char *e_ident)
 {
 	int i;
 
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 4; index++)
 	{
-		if (e_ident[i] != 127 &&
-		    e_ident[i] != 'E' &&
-		    e_ident[i] != 'L' &&
-		    e_ident[i] != 'F')
+		if (e_ident[index] != 127 &&
+		    e_ident[index] != 'E' &&
+		    e_ident[index] != 'L' &&
+		    e_ident[index] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -27,16 +26,17 @@ void elf_fun(unsigned char *e_ident)
  * @e_ident: Pointer to first section of ELF header
  *
  */
-void magic_fun(unsigned char *e_ident)
+void print_magic(unsigned char *e_ident)
 {
-	int i;
+	int index;
 
 	printf("  Magic:   ");
-	for (i = 0; i < EI_NIDENT; i++)
-	{
-		printf("%02x", e_ident[i]);
 
-		if (i == EI_NIDENT - 1)
+	for (index = 0; index < EI_NIDENT; index++)
+	{
+		printf("%02x", e_ident[index]);
+
+		if (index == EI_NIDENT - 1)
 			printf("\n");
 		else
 			printf(" ");
@@ -161,7 +161,8 @@ void os_abi_fun(unsigned char *e_ident)
  */
 void abi_fun(unsigned char *e_ident)
 {
-	printf("  ABI Version:                       %d\n", e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n",
+	       e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -232,7 +233,7 @@ int main(int ac, char **av)
 	int fd;
 	ssize_t rd;
 	Elf64_Ehdr *BUF;
-
+	
 	BUF = malloc(sizeof(Elf64_Ehdr));
 	if (BUF == NULL)
 	{
@@ -256,8 +257,9 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Can not read file\n");
 		exit(98);
 	}
-	elf_fun(BUF->e_ident);
+	elf_fun(header->e_ident);
 	printf("ELF Header:\n");
+	magic_fun(header->e_ident);
 	magic_fun(BUF->e_ident);
 	class_fun(BUF->e_ident);
 	data_fun(BUF->e_ident);

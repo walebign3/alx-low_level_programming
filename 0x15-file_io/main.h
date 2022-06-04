@@ -18,5 +18,7 @@ void abi_fun(unsigned char *e_ident);
 void os_abi_fun(unsigned char *e_ident);
 void type_fun(unsigned int e_type, unsigned char *e_ident);
 void entry_point_add_fun(unsigned long int e_entry, unsigned char *e_ident);
+void magic_fun(unsigned char *e_ident);
+void elf_fun(unsigned char *e_ident);
 
 #endif
