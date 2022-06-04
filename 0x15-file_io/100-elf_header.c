@@ -32,7 +32,6 @@ void magic_fun(unsigned char *e_ident)
 	for (i = 0; i < EI_NIDENT; i++)
 	{
 		printf("%02x", e_ident[i]);
-
 		if (i == EI_NIDENT - 1)
 			printf("\n");
 		else
