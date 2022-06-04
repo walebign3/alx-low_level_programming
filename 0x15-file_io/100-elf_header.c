@@ -38,6 +38,7 @@ void magic_fun(unsigned char *e_ident)
 			printf(" ");
 	}
 }
+
 /**
  * class_fun - Display class information
  * @e_ident: Pointer to first section of ELF header
@@ -215,7 +216,7 @@ void entry_point_add_fun(unsigned long int e_entry, unsigned char *e_ident)
  */
 int main(int ac, char **av)
 {
-	int fd;
+	int c, fd;
 	ssize_t rd;
 	Elf64_Ehdr *BUF;
 
@@ -253,5 +254,11 @@ int main(int ac, char **av)
 	type_fun(BUF->e_type, BUF->e_ident);
 	entry_point_add_fun(BUF->e_entry, BUF->e_ident);
 	free(BUF);
+        c = close(fd);
+	if (c == -1)
+	{
+		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
+		exit(98);
+	}
 	return 0;
 }
