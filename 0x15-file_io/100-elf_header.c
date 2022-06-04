@@ -11,10 +11,7 @@ void elf_fun(unsigned char *e_ident)
 
 	for (i = 0; i < 4; i++)
 	{
-		if (e_ident[i] != 127 &&
-		    e_ident[i] != 'E' &&
-		    e_ident[i] != 'L' &&
-		    e_ident[i] != 'F')
+		if (e_ident[i] != 127 && e_ident[i] != 'E' && e_ident[i] != 'L' && e_ident[i] != 'F')
 		{
 			dprintf(STDERR_FILENO, "Error: Not an ELF file\n");
 			exit(98);
@@ -49,7 +46,6 @@ void magic_fun(unsigned char *e_ident)
 void class_fun(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
-
 	switch (e_ident[EI_CLASS])
 	{
 	case ELFCLASSNONE:
@@ -73,7 +69,6 @@ void class_fun(unsigned char *e_ident)
 void data_fun(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
-
 	switch (e_ident[EI_DATA])
 	{
 	case ELFDATANONE:
@@ -98,7 +93,6 @@ void version_fun(unsigned char *e_ident)
 {
 	printf("  Version:                           %d",
 	       e_ident[EI_VERSION]);
-
 	switch (e_ident[EI_VERSION])
 	{
 	case EV_CURRENT:
@@ -117,7 +111,6 @@ void version_fun(unsigned char *e_ident)
 void os_abi_fun(unsigned char *e_ident)
 {
 	printf("  OS/ABI:                            ");
-
 	switch (e_ident[EI_OSABI])
 	{
 	case ELFOSABI_NONE:
@@ -173,9 +166,7 @@ void type_fun(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
-
 	printf("  Type:                              ");
-
 	switch (e_type)
 	{
 	case ET_NONE:
@@ -206,17 +197,14 @@ void type_fun(unsigned int e_type, unsigned char *e_ident)
 void entry_point_add_fun(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
-
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
 			  ((e_entry >> 8) & 0xFF00FF);
 		e_entry = (e_entry << 16) | (e_entry >> 16);
 	}
-
 	if (e_ident[EI_CLASS] == ELFCLASS32)
 		printf("%#x\n", (unsigned int)e_entry);
-
 	else
 		printf("%#lx\n", e_entry);
 }
@@ -250,7 +238,7 @@ int main(int ac, char **av)
 		dprintf(STDERR_FILENO, "Can not open %s\n", av[1]);
 		exit(98);
 	}
-	rd = read(fd, BUF, 64);
+	rd = read(fd, BUF, sizeof(Elf64_Ehdr));
 	if (rd == -1)
 	{
 		dprintf(STDERR_FILENO, "Can not read file\n");
