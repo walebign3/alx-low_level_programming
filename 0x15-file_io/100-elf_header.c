@@ -207,6 +207,7 @@ void entry_point_add_fun(unsigned long int e_entry, unsigned char *e_ident)
 	else
 		printf("%#lx\n", e_entry);
 }
+
 /**
  * main - read binary file and return elf header information
  * @ac: The number of arguments
