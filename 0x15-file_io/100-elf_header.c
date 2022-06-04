@@ -254,7 +254,7 @@ int main(int ac, char **av)
 	type_fun(BUF->e_type, BUF->e_ident);
 	entry_point_add_fun(BUF->e_entry, BUF->e_ident);
 	free(BUF);
-        c = close(fd);
+	c = close(fd);
 	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
