@@ -226,11 +226,6 @@ int main(int __attribute__((__unused__)) ac, char **av)
 		dprintf(STDERR_FILENO, "Can not read file\n");
 		exit(98);
 	}
-	if (ac != 2)
-	{
-		dprintf(STDERR_FILENO, "Usage: elf_header elf_filename\n");
-		exit(98);
-	}
 	fd = open(av[1], O_RDONLY);
 	if (fd == -1)
 	{
