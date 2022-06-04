@@ -7,7 +7,6 @@
 void class_fun(unsigned char *e_ident)
 {
 	printf("  Class:                             ");
-
 	switch (e_ident[EI_CLASS])
 	{
 	case ELFCLASSNONE:
@@ -31,7 +30,6 @@ void class_fun(unsigned char *e_ident)
 void data_fun(unsigned char *e_ident)
 {
 	printf("  Data:                              ");
-
 	switch (e_ident[EI_DATA])
 	{
 	case ELFDATANONE:
@@ -119,8 +117,7 @@ void os_abi_fun(unsigned char *e_ident)
  */
 void abi_fun(unsigned char *e_ident)
 {
-	printf("  ABI Version:                       %d\n",
-	       e_ident[EI_ABIVERSION]);
+	printf("  ABI Version:                       %d\n", e_ident[EI_ABIVERSION]);
 }
 
 /**
@@ -132,9 +129,7 @@ void type_fun(unsigned int e_type, unsigned char *e_ident)
 {
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 		e_type >>= 8;
-
 	printf("  Type:                              ");
-
 	switch (e_type)
 	{
 	case ET_NONE:
@@ -165,7 +160,6 @@ void type_fun(unsigned int e_type, unsigned char *e_ident)
 void entry_point_add_fun(unsigned long int e_entry, unsigned char *e_ident)
 {
 	printf("  Entry point address:               ");
-
 	if (e_ident[EI_DATA] == ELFDATA2MSB)
 	{
 		e_entry = ((e_entry << 8) & 0xFF00FF00) |
@@ -179,6 +173,7 @@ void entry_point_add_fun(unsigned long int e_entry, unsigned char *e_ident)
 	else
 		printf("%#lx\n", e_entry);
 }
+
 /**
  * main - read binary file and return elf header information
  * @ac: The number of arguments
@@ -237,7 +232,7 @@ int main(int ac, char **av)
 	if (c == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
+		exit(98);
 	}
 	return 0;
 }
