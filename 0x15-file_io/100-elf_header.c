@@ -181,7 +181,7 @@ void entry_point_add_fun(unsigned long int e_entry, unsigned char *e_ident)
  *
  * Return: Always 0.
  */
-int main(int ac, char **av)
+int main(int __attribute__((__unused__)) ac, char **av)
 {
 	int n, c, fd;
 	ssize_t rd;
