@@ -9,6 +9,7 @@ int main(void)
 {
 	unsigned long int s3 = 0, s5 = 0, sum = 0;
 	int i;
+
 	for (i = 0; i < 1024; ++i)
 	{
 		if ((i % 3) == 0)
