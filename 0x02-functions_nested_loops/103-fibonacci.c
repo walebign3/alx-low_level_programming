@@ -9,6 +9,7 @@ int main(void)
 {
 	int i;
 	unsigned long int j = 1, k = 2, next, sum = 0;
+
 	for (i = 1; i <= 33; ++i)
 	{
 		if (j < 4000000 && (j % 2) == 0)
