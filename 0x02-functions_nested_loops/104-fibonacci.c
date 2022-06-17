@@ -1,7 +1,7 @@
 #include <stdio.h>
 /**
  * main - prints out first 98
- *
+ * Return: Always 0
  */
 int main(void)
 {
