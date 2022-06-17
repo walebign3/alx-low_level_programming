@@ -1,9 +1,9 @@
 /**
-* _atoi - convert string to integer
-* @s: string
-*
-* Return: integer
-*/
+ * _atoi - convert string to integer
+ * @s: string
+ *
+ * Return: integer
+ */
 int _atoi(char *s)
 {
 	int n = 1;
