@@ -17,5 +17,6 @@ int _atoi(char *s)
 		else if (intr > 0)
 			break;
 	} while (*s++);
+
 	return (intr *n);
 }
