@@ -18,5 +18,5 @@ int _atoi(char *s)
 			break;
 	} while (*s++);
 
-	return (intr *n);
+	return (intr * n);
 }
