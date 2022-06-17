@@ -11,11 +11,11 @@ int _atoi(char *s)
 
 	do {
 		if (*s == '-')
-			n *= -1;
+			n = n * -1;
 		else if (*s >= '0' && *s <= '9')
 			intr = intr * 10 + (*s - '0');
 		else if (intr > 0)
 			break;
-	} while (* s++);
+	} while (*s++);
 	return (intr *n);
 }
