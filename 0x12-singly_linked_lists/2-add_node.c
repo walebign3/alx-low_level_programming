@@ -10,7 +10,7 @@
 
 list_t *add_node(list_t **head, const char *str)
 {
-	int ln;
+	int ln = 0;
 	char *buf;
 	list_t *nod;
 
@@ -23,7 +23,7 @@ list_t *add_node(list_t **head, const char *str)
 		free(buf);
 		return (NULL);
 	}
-	for (ln = 0; str[ln];)
+	while (str[ln])
 		ln++;
 	nod->str = buf;
 	nod->len = ln;
