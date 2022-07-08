@@ -2,45 +2,52 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * insert_dnodeint_at_index - function insert at index idx return address
+ * insert_dnodeint_at_index - inserts a new node at index idx
  * @h: pointer to first node
  * @idx: index
- * @n: data to be inserted
+ * @n: data
  *
- * Return: void
- *
+ * Return: the address of the new node, or NULL if it failed
  */
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
-	unsigned int num = 1;
 	dlistint_t *tmp, *tmp2;
+	unsigned int num;
 
-	tmp = malloc(sizeof(dlistint_t));
-	if (tmp == NULL)
-	{
-		dprintf(2, "Error: Can't malloc\n");
-		return (NULL);
-	}
-	tmp->n = n;
-	tmp->prev = NULL;
-	tmp->next = NULL;
-	tmp2 = *h;
+	tmp = NULL;
 	if (idx == 0)
-		add_dnodeint(&tmp2, 0);
-	while (tmp2 != NULL)
+		tmp = add_dnodeint(h, n);
+	else
 	{
-		if (idx == num)
+		tmp2 = *h;
+		num = 1;
+		if (tmp2 != NULL)
+			while (tmp2->prev != NULL)
+				tmp2 = tmp2->prev;
+		while (tmp2 != NULL)
 		{
-			tmp->next = tmp2->next;
-			tmp->prev = tmp2;
-			tmp2->next = tmp;
-			if (tmp->next != NULL)
-				tmp->next->prev = tmp;
+			if (num == idx)
+			{
+				if (tmp2->next == NULL)
+					tmp = add_dnodeint_end(h, n);
+				else
+				{
+					tmp = malloc(sizeof(dlistint_t));
+					if (tmp != NULL)
+					{
+						tmp->n = n;
+						tmp->next = tmp2->next;
+						tmp->prev = tmp2;
+						tmp2->next->prev = tmp;
+						tmp2->next = tmp;
+					}
+				}
+				break;
+			}
+			tmp2 = tmp2->next;
+			num++;
 		}
-		num++;
-		tmp2 = tmp2->next;
 	}
-	if (idx >= num)
-		return (NULL);
+
 	return (tmp);
 }
