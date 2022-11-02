@@ -3,9 +3,12 @@
 #include "search_algos.h"
 
 /**
- * main - Entry point
+ * linear_search -  searches for a value in an array
+ * @array: array
+ * size: size of an array
+ * value: searched value
  *
- * Return: Always EXIT_SUCCESS
+ * Return: value or -1 if not available
  */
 int linear_search(int *array, size_t size, int value)
 {
