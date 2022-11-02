@@ -5,8 +5,8 @@
 /**
  * linear_search -  searches for a value in an array
  * @array: array
- * size: size of an array
- * value: searched value
+ * @size: size of an array
+ * @value: searched value
  *
  * Return: value or -1 if not available
  */
