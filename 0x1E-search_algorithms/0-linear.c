@@ -3,7 +3,7 @@
 #include "search_algos.h"
 
 /**
- * linear_search -  searches for a value in an array
+ * linear_search - searches for a val in an array
  * @array: array
  * @size: size of an array
  * @value: searched value
@@ -13,6 +13,7 @@
 int linear_search(int *array, size_t size, int value)
 {
 	size_t i;
+
 	for (i = 0; i < size; i++)
 	{
 		printf("Value checked array[%ld] = [%d]\n", i, array[i]);
