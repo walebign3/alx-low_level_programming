@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "search_algos.h"
 #include <math.h>
+
 /**
  * binary_search - Entry point
  *
@@ -36,9 +37,7 @@ int binary_search(int *array, size_t size, int value)
 		else if (array[m] > value)
 			r = m - 1;
 		else
-		{
 			return (m);
-		}
 	}
 	return (-1);
 }
